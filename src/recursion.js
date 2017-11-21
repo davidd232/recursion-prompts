@@ -34,12 +34,18 @@ var sum = function(array) {
 // 3. Sum all numbers in an array containing nested arrays.
 // arraySum([1,[2,3],[[4]],5]); // 15
 var arraySum = function(array) {
-  if (array.length === 0) {
-    return 0;
-  } else if (array.length === 1) {
-    return array[0];
+  // if (array.length === 1) {
+  //   return array[0];
+  // }  this can't work here because of recursive calls might return array[0]
+  var sum = 0;
+  for (var i = 0; i < array.length; i++) {
+    if (typeof array[i] === 'number') {
+      sum += array[i];
+    } else if (Array.isArray(array[i])) {
+      sum += arraySum(array[i]);
+    }
   }
-
+  return sum;
 };
 
 // 4. Check if a number is even.
