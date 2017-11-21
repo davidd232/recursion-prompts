@@ -86,11 +86,7 @@ var range = function(x, y) {
   if (x === y || x - y === 1 || y - x === 1) {
     return [];
   }
-  if (x > y) {
-    
-  } else if (y > x) {
-    
-  }
+  
 };
 
 // 7. Compute the exponent of a number.
@@ -117,10 +113,22 @@ var exponent = function(base, exp) {
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
 var powerOfTwo = function(n) {
-  if (n === 1 || n === 2) {
+  if (n === 0) {
+    return false;
+  }
+  if (n === 1 || n === 2 ) {
     return true;
   }
-  
+  var mult = 2;
+  if (mult < n) {
+    mult *= 2;
+    if (mult === n) {
+      return true;
+    } else {
+      return powerOfTwo(n / 2);
+    }
+  }
+  return false;
 };
 
 // 9. Write a function that reverses a string.
