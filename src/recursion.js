@@ -83,10 +83,18 @@ var sumBelow = function(n) {
 // 6. Get the integers within a range (x, y).
 // range(2,9); // [3,4,5,6,7,8]
 var range = function(x, y) {
+  var arr = [];
   if (x === y || x - y === 1 || y - x === 1) {
-    return [];
+    return arr;
   }
-  
+  if (x < y && y - x !== 1) {
+    arr.push(x + 1);
+    return arr.concat(range(x + 1, y));
+  }
+  if (x > y && x - y !== 1) {
+    arr.push(x - 1);
+    return arr.concat(range(x - 1, y));
+  }
 };
 
 // 7. Compute the exponent of a number.
@@ -133,6 +141,12 @@ var powerOfTwo = function(n) {
 
 // 9. Write a function that reverses a string.
 var reverse = function(string) {
+  string = string.split('');
+  var temp = [];
+  for (var i = string.length - 1; i >= 0; i--) {
+    temp.push(string[i]);
+  }
+  return temp.join('');
 };
 
 // 10. Write a function that determines if a string is a palindrome.
@@ -151,7 +165,7 @@ var modulo = function(x, y) {
 // 12. Write a function that multiplies two numbers without using the * operator or
 // Math methods.
 var multiply = function(x, y) {
-
+  //add check for negative numbers
 };
 
 // 13. Write a function that divides two numbers without using the / operator or
