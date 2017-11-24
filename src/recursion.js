@@ -215,15 +215,15 @@ var multiply = function(x, y) {
 // 13. Write a function that divides two numbers without using the / operator or
 // Math methods.
 var divide = function(x, y) {
+  let temp = 0;
   if (x === 0 && y === 0) {
     return NaN;
   }
-  var temp = 0;
   if (x - y < 0) {
     return temp;
   } else {
     temp++;
-    return divide(x - 1, y);
+    return divide(x - y, y);
   }
 };
 
@@ -269,10 +269,11 @@ var reverseArr = function(array) {
 // buildList(7,3) // [7,7,7]
 var buildList = function(value, length) {
   var arr = [];
-  arr.push(value);
   if (length > 0) {
+    arr.push(value);
     return arr.concat(buildList(value, length - 1));
   }
+  return arr;
 };
 
 // 19. Implement FizzBuzz. Given integer n, return an array of the string representations of 1 to n.
