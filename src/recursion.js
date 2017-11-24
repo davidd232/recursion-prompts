@@ -166,7 +166,29 @@ var palindrome = function(string) {
 // modulo(17,5) // 2
 // modulo(22,6) // 4
 var modulo = function(x, y) {
-  
+  if (x > 0 && y > 0) {
+    if (x - y >= 0) {
+      return modulo(x - y, y);
+    } else {
+      return x;
+    }
+  }
+  if (y === 0) {
+    return NaN;
+  }
+  if (x < 0 && !newX) {
+    var newX = ~(x + 1);
+  } else {
+    var newX = x;
+  }
+  if (y < 0 && !newY) {
+    var newY = ~(y + 1);
+  } else {
+    var newY = y;
+  }
+  if (newX < newY) {
+    return x;
+  }
 };
 
 // 12. Write a function that multiplies two numbers without using the * operator or
@@ -194,23 +216,38 @@ var gcd = function(x, y) {
 // compareStr('house', 'houses') // false
 // compareStr('tomato', 'tomato') // true
 var compareStr = function(str1, str2) {
-
+  // str1 = str1.split('');
+  // str2 = str2.split('');
+  // if (str1[0] !== str2[0]) {
+  //   return false;
+  // }
+  // str1.shift();
+  // str2.shift();
+  // compareStr(str1, str2);
+  // return true;
 };
 
 // 16. Write a function that accepts a string and creates an array where each letter
 // occupies an index of the array.
 var createArray = function(str) {
+  var arr = [];
 
 };
 
 // 17. Reverse the order of an array
 var reverseArr = function(array) {
+  
 };
 
 // 18. Create a new array with a given value and length.
 // buildList(0,5) // [0,0,0,0,0]
 // buildList(7,3) // [7,7,7]
 var buildList = function(value, length) {
+  var arr = [];
+  arr.push(value);
+  if (length > 0) {
+    return arr.concat(buildList(value, length - 1));
+  }
 };
 
 // 19. Implement FizzBuzz. Given integer n, return an array of the string representations of 1 to n.
@@ -271,6 +308,7 @@ var nthFibo = function(n) {
 // var words = ['i', 'am', 'learning', 'recursion'];
 // capitalizedWords(words); // ['I', 'AM', 'LEARNING', 'RECURSION']
 var capitalizeWords = function(array) {
+  
 };
 
 // 28. Given an array of strings, capitalize the first letter of each index.
