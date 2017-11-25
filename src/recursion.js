@@ -233,14 +233,14 @@ var divide = function(x, y) {
 // http://www.cse.wustl.edu/~kjg/cse131/Notes/Recursion/recursion.html
 // https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/the-euclidean-algorithm
 var gcd = function(x, y) {
-
+  
 };
 
 // 15. Write a function that compares each character of two strings and returns true if
 // both are identical.
 // compareStr('house', 'houses') // false
 // compareStr('tomato', 'tomato') // true
-var compareStr = function(str1, str2) {
+var compareStr = function(str1, str2) {  
   
 };
 
@@ -285,14 +285,19 @@ var buildList = function(value, length) {
 // fizzBuzz(5) // ['1','2','Fizz','4','Buzz']
 var fizzBuzz = function(n) {
   var arr = [];
-  if (num % 3 === 0) {
-    arr.push('Fizz');
-  } else if (num % 5 === 0) {
-    arr.push('Buzz');
-  } else {
-    arr.push()
+  if (n > 0) {
+    if (n % 3 !== 0 && n % 5 !== 0) {
+      arr.unshift(n.toString());
+      return arr.concat(fizzBuzz(n - 1));
+    } else if (n % 5 === 0) {
+      arr.unshift('Buzz');
+      return arr.concat(fizzBuzz(n - 1));
+    } else if (n % 3 === 0) {
+      arr.unshift('Fizz');
+      return arr.concat(fizzBuzz(n - 1));
+    }
   }
-  
+  return arr;
 };
 
 // 20. Count the occurence of a value in a list.
@@ -374,10 +379,8 @@ var capitalizeFirst = function(array) {
   var temp = [];
   if (array.length) {
     temp.push(array[0].charAt(0).toUpperCase() + array[0].slice(1));
-    console.log('maybe',temp);
     return temp.concat(capitalizeFirst(array.slice(1)));
   }
-  console.log(temp);
   return temp;
 };
 
@@ -396,6 +399,7 @@ var nestedEvenSum = function(obj) {
 // 30. Flatten an array containing nested arrays.
 // flatten([1,[2],[3,[[4]]],5]); // [1,2,3,4,5]
 var flatten = function(array) {
+ 
 };
 
 // 31. Given a string, return an object containing tallies of each letter.
@@ -415,6 +419,7 @@ var compress = function(list) {
 // itself.
 // augmentElements([[],[3],[7]], 5); // [[5],[3,5],[7,5]]
 var augmentElements = function(array, aug) {
+
 };
 
 // 34. Reduce a series of zeroes to a single 0.
@@ -428,6 +433,7 @@ var minimizeZeroes = function(array) {
 // alternateSign([2,7,8,3,1,4]) // [2,-7,8,-3,1,-4]
 // alternateSign([-2,-7,8,3,-1,4]) // [2,-7,8,-3,1,-4]
 var alternateSign = function(array) {
+  
 };
 
 // 36. Given a string, return a string with digits converted to their word equivalent.
@@ -448,6 +454,7 @@ var tagCount = function(tag, node) {
 // binarySearch(array, 5) // 5
 // https://www.khanacademy.org/computing/computer-science/algorithms/binary-search/a/binary-search
 var binarySearch = function(array, target, min, max) {
+  
 };
 
 // 39. Write a merge sort function.
