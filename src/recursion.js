@@ -241,22 +241,18 @@ var gcd = function(x, y) {
 // compareStr('house', 'houses') // false
 // compareStr('tomato', 'tomato') // true
 var compareStr = function(str1, str2) {
-  // str1 = str1.split('');
-  // str2 = str2.split('');
-  // if (str1[0] !== str2[0]) {
-  //   return false;
-  // }
-  // str1.shift();
-  // str2.shift();
-  // compareStr(str1, str2);
-  // return true;
+  
 };
 
 // 16. Write a function that accepts a string and creates an array where each letter
 // occupies an index of the array.
 var createArray = function(str) {
   var arr = [];
-
+  if (str.length) {
+    arr.push(str[0]);
+    return arr.concat(createArray(str.slice(1)));
+  }
+  return arr;
 };
 
 // 17. Reverse the order of an array
@@ -282,6 +278,12 @@ var buildList = function(value, length) {
 // For numbers which are multiples of both three and five, output “FizzBuzz” instead of the number.
 // fizzBuzz(5) // ['1','2','Fizz','4','Buzz']
 var fizzBuzz = function(n) {
+  if (num % 3 === 0) {
+    array.push('Fizz');
+  }
+  if (num % 5 === 0) {
+    array.push('Buzz');
+  }
 };
 
 // 20. Count the occurence of a value in a list.
