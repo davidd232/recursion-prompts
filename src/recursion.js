@@ -284,18 +284,29 @@ var buildList = function(value, length) {
 // For numbers which are multiples of both three and five, output “FizzBuzz” instead of the number.
 // fizzBuzz(5) // ['1','2','Fizz','4','Buzz']
 var fizzBuzz = function(n) {
+  var arr = [];
   if (num % 3 === 0) {
-    array.push('Fizz');
+    arr.push('Fizz');
+  } else if (num % 5 === 0) {
+    arr.push('Buzz');
+  } else {
+    arr.push()
   }
-  if (num % 5 === 0) {
-    array.push('Buzz');
-  }
+  
 };
 
 // 20. Count the occurence of a value in a list.
 // countOccurrence([2,7,4,4,1,4], 4) // 3
 // countOccurrence([2,'banana',4,4,1,'banana'], 'banana') // 2
 var countOccurrence = function(array, value) {
+  var found = [];
+  if (array.length) {
+    if (array[0] === value) {
+      found.push(value);
+    }
+    found.concat(countOccurrence(array.slice(1), value));
+  }
+  return found.length;
 };
 
 // 21. Write a recursive version of map.
@@ -326,6 +337,7 @@ var countValuesInObj = function(obj, value) {
 // 24. Find all keys in an object (and nested objects) by a provided name and rename
 // them to a provided new name while preserving the value stored at that key.
 var replaceKeysInObj = function(obj, oldKey, newKey) {
+
 };
 
 // 25. Get the first n Fibonacci numbers. In the Fibonacci sequence, each subsequent
@@ -348,7 +360,12 @@ var nthFibo = function(n) {
 // var words = ['i', 'am', 'learning', 'recursion'];
 // capitalizedWords(words); // ['I', 'AM', 'LEARNING', 'RECURSION']
 var capitalizeWords = function(array) {
-  
+  var temp = [];
+  if (array.length) {
+    temp.push(array[0].toUpperCase());
+    return temp.concat(capitalizeWords(array.slice(1)));
+  }
+  return temp;
 };
 
 // 28. Given an array of strings, capitalize the first letter of each index.
